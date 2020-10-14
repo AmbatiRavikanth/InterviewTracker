@@ -109,4 +109,10 @@ public class InterviewServiceimpl implements InterviewService {
 		return models;
 	}
 
+	@Override
+	public Integer getTotalNoofinterviews() {
+		// TODO Auto-generated method stub
+		return interviewdao.findAll().size();
+	}
+
 }

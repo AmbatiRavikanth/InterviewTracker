@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="Users")
 public class UserEntity {
@@ -35,7 +37,7 @@ public class UserEntity {
 //	  joinColumns = @javax.persistence.JoinColumn(name = "user_id"), 
 //	  inverseJoinColumns = @javax.persistence.JoinColumn(name = "interview_id"))
 //	Set<InterviewEntity> interviews;
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL )
     Set<AttendeeEntity> attendees= new HashSet<>();
 	

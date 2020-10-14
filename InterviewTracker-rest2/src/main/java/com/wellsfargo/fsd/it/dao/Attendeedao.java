@@ -12,11 +12,9 @@ import com.wellsfargo.fsd.it.Entity.UserEntity;
 
 @Repository
 public interface Attendeedao extends JpaRepository<AttendeeEntity,Integer>{	
-
-	
-	@Query("SELECt k.user FROM AttendeeEntity k WHERE k.interview=interview")
-	List<UserEntity> findAllinterviewId(InterviewEntity interview);
 	
 	
+	@Query("SELECt k.user FROM AttendeeEntity k WHERE k.interview=:interview")
+	List<UserEntity> findAllinterviewId(InterviewEntity interview);	
 
 }

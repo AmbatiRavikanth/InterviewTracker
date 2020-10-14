@@ -54,10 +54,10 @@ public class AttendeeServiceimpl implements AttendeeService{
 			List<UserEntity> entities=null;
 			entities=attendeedao.findAllinterviewId(attendee.getInterview());
 			//entities=attendeedao.findAll();
-			System.out.println(entities.size());
+//			System.out.println(entities.size());
 			for(UserEntity e:entities)
 			{
-				System.out.println(e);
+//				System.out.println(e);
 				if (e.getUserId()==attendee.getUser().getUserId())
 				{
 					throw new InterviewException("User has already been added to this interview");
@@ -85,7 +85,15 @@ public class AttendeeServiceimpl implements AttendeeService{
 
 	@Override
 	public List<UserEntity> getAllAttendees(int interview) {
-		return null;
+		List<UserEntity> entities=null;
+		InterviewEntity i=interviewdao.findById(interview).orElse(null);
+		System.out.println(i);
+		if (i!=null)
+		{
+			entities=attendeedao.findAllinterviewId(i);
+		}
+			System.out.println(entities);
+		return entities;
 		
 		//return attendeedao.findAll();
 		// TODO Auto-generated method stub

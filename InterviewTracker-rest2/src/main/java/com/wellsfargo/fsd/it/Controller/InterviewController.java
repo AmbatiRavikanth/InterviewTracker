@@ -43,6 +43,12 @@ public class InterviewController {
 
 		return new ResponseEntity<List<InterviewModel>>(interviewservice.getAllInterviewByName(name),HttpStatus.OK);
 	}
+	@GetMapping("/count")
+	public ResponseEntity<String> getAllInterviewsByName()
+	{
+
+		return new ResponseEntity<String>("Total no of interviews are "+interviewservice.getTotalNoofinterviews(),HttpStatus.OK);
+	}
 	
 	
 	@PostMapping

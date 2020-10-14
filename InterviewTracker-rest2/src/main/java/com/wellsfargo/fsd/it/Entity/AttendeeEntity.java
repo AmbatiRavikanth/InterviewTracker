@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Table
 @Entity
 public class AttendeeEntity {
@@ -40,7 +43,7 @@ public class AttendeeEntity {
 	public void setUser(UserEntity user) {
 		this.user = user;
 	}
-
+	//@JsonBackReference	
 	public InterviewEntity getInterview() {
 		return interview;
 	}

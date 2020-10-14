@@ -16,6 +16,9 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="InterviewDetails")
 
@@ -44,12 +47,12 @@ public class InterviewEntity {
 //	@ManyToMany(mappedBy = "interviews")
 //	Set<UserEntity> users;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "interview",cascade = CascadeType.ALL )
     Set<AttendeeEntity> attendees = new HashSet<>();
 	
 	
-	
-	
+	//@JsonManagedReference	
 	public Set<AttendeeEntity> getAttendees() {
 		return attendees;
 	}
